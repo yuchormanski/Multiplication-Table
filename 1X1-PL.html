@@ -1,0 +1,83 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>1 X 1 = ?</title>
+    <style>
+body {
+	background:#333;
+}
+.wrapper {
+	background:#ddd;
+	width:500px;
+	margin: 55px auto;
+	border: 2px solid #fff;
+	padding: 20px 120px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+.popup-section {
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+.block {
+	margin: 30px auto;
+	font-size: 22px;
+	font-weight: bold;
+	font-style: italic;
+}
+.block a {
+	color: #114B8F;
+	text-decoration: none;
+}
+.block a:hover {
+	color: #6FA3FF;
+}
+th {
+	color: red;
+}
+h1 {
+	font-family: Georgia, Helvetica, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: #DF00DA;
+}
+    </style>
+ </head>
+<body>
+	<div class="wrapper">
+		<div class="popup-section">
+			<h1>Можеш ли да смяташ?</h1>
+                <div class="popups">
+					<table class="block" border="1"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+$(function () {
+	var i, j, t = '<tr><th>###</th>';
+	for (i = 1; i <= 9; i++) {
+		t += '<th>' + i + '</th>';
+	}
+	t += '</tr>';
+	for (i = 1; i <= 9; i++) {
+		t += '<tr><th>' + i + '</th>';
+		for (j = 1; j <= 9; j++) {
+			t += '<td><a href="#' + i + '-' + j + '">' + i + 'x' + j + '</a></td>';
+		}
+		t += '</tr>';
+	}
+	$('.block').html(t);
+	$('.block a').click(function () {
+		var res = $(this).attr('href').charAt(1) * $(this).attr('href').charAt(3);
+		alert(res);
+		return false;
+	});
+});    
+    </script>
+</body>
+</html>
+
